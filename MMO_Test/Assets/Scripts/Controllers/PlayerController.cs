@@ -17,6 +17,7 @@ public class PlayerController : BaseController
 
     public override void Init()
     {
+        WorldObjectType = Define.WorldObject.Player;
         _stat = gameObject.GetComponent<PlayerStat>();
 
         // 혹시라도 다른곳에서도 구독신청중이면 끊어주고 다시 구독해줌

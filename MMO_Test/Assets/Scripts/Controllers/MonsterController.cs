@@ -15,6 +15,7 @@ public class MonsterController : BaseController
 
     public override void Init()
     {
+        WorldObjectType = Define.WorldObject.Monster;
         _stat = gameObject.GetComponent<Stat>();
 
         if(gameObject.GetComponentInChildren<UI_HPBar>() == null)
