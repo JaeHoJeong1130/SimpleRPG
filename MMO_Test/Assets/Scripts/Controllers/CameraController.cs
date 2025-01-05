@@ -12,6 +12,8 @@ public class CameraController : MonoBehaviour
     [SerializeField]
     GameObject _player = null;
 
+    public void SetPlayer(GameObject player) { _player = player; }
+
     void Start()
     {
         
@@ -23,10 +25,11 @@ public class CameraController : MonoBehaviour
     {
         if(_mode == Define.CameraMode.QuarterView)
         {
-            if(_player == null)
+            if(_player.IsValid() == false)
             {
                 return;
             }
+
             RaycastHit hit;
             if(Physics.Raycast(_player.transform.position, _delta, out hit, _delta.magnitude, LayerMask.GetMask("Block")))
             {
@@ -35,6 +38,20 @@ public class CameraController : MonoBehaviour
             }
             else
             {
+                float presentDist = transform.position.magnitude;
+                float dist = (_player.transform.position + _delta).magnitude;
+                if(presentDist < dist)
+                {
+                    Debug.Log("camera");
+                    for(int i = 0; i < 100000; i++)
+                    {  
+                        transform.position = _player.transform.position + _delta.normalized * 1.05f;
+
+                        if(presentDist > dist)
+                            break;
+                    }
+                }
+
                 transform.position = _player.transform.position + _delta;
                 // 무조건 플레이어를 주시하게 해주는 LookAt
                 transform.LookAt(_player.transform);
