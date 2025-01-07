@@ -10,8 +10,9 @@ namespace Data
 public class Stat
 { // 이름을 똑같이 맞춰줘야함, 타입도 맞춰줘야함
     public int level;
-    public int hp;
+    public int maxHp;
     public int attack;
+    public int totalExp;
 }
 
 [Serializable]

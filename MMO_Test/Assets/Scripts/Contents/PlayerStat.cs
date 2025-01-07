@@ -15,16 +15,16 @@ public class PlayerStat : Stat
     private void Start()
     {
         _level = 1;
-        _hp = 300;
-        _maxHp = 300;
-        _attack = 30;
+        _hp = 150;
+        _maxHp = 150;
+        _attack = 15;
         _defense = 5;
         _moveSpeed = 8.0f;
         _exp = 0;
         _gold = 0;
     }
 
-    protected override void OnDead()
+    protected override void OnDead(Stat attacker)
     {
         Debug.Log("YOU DIE...");
     }
