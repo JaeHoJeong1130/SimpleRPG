@@ -24,13 +24,12 @@ public class MonsterController : BaseController
 
     protected override void UpdateIdle()
     {
-        Debug.Log("Monster UpdateIdle");
 
-        // 매니저가 생기면 옮기자
-        // 이번엔 태그를 이용해보자
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        GameObject player = Managers.Game.GetPlayer();
         if(player == null)
             return;
+
+        Managers.Game.GetPlayer();
 
         float distance = (player.transform.position - transform.position).magnitude;
         if(distance <= _scanRange)
@@ -89,6 +88,7 @@ public class MonsterController : BaseController
         if(_lockTarget != null)
         {
             Stat targetStat = _lockTarget.GetComponent<Stat>();
+            
             int damage = Mathf.Max(0, _stat.Attack - targetStat.Defense);
             targetStat.Hp -= damage;
 

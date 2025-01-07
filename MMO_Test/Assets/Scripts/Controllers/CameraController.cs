@@ -38,6 +38,9 @@ public class CameraController : MonoBehaviour
             }
             else
             {
+                // TODO
+                // 시야가 땡겨졌다가 돌아올때 자연스럽게 하는 부분
+                
                 transform.position = _player.transform.position + _delta;
                 // 무조건 플레이어를 주시하게 해주는 LookAt
                 transform.LookAt(_player.transform);
