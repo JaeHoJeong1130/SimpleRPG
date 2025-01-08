@@ -16,6 +16,8 @@ public class GameScene : BaseScene
 
         gameObject.GetOrAddComponent<CursorController>();
 
+        Managers.Sound.Play("BGM/5 - Heavy Combat - Paladin's Fury (loop)", Define.Sound.Bgm, volume : 0.1f);
+
         GameObject player = Managers.Game.Spawn(Define.WorldObject.Player, "Player");
         Camera.main.gameObject.GetOrAddComponent<CameraController>().SetPlayer(player);
         

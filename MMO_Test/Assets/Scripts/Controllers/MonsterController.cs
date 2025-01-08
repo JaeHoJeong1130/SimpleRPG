@@ -34,6 +34,7 @@ public class MonsterController : BaseController
         float distance = (player.transform.position - transform.position).magnitude;
         if(distance <= _scanRange)
         {
+            Managers.Sound.Play("MonsterRoars/01. Primal Roar", Define.Sound.Effect);
             _lockTarget = player;
             State = Define.State.Moving;
             return;
@@ -88,6 +89,7 @@ public class MonsterController : BaseController
         if(_lockTarget != null)
         {
             Stat targetStat = _lockTarget.GetComponent<Stat>();
+            Managers.Sound.Play("Attack/HammerFlesh1", Define.Sound.Effect, volume : 0.4f);
             targetStat.OnAttacked(_stat);
 
             if(targetStat.Hp > 0)

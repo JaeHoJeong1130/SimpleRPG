@@ -31,7 +31,7 @@ public class Stat : MonoBehaviour
         _hp = 100;
         _maxHp = 100;
         _attack = 10;
-        _defense = 5;
+        _defense = 0;
         _moveSpeed = 5.0f;
     }
 
@@ -51,7 +51,7 @@ public class Stat : MonoBehaviour
         PlayerStat playerStat = attacker as PlayerStat;
         if(playerStat != null)
         {
-            playerStat.Exp += 1;
+            playerStat.Exp += 10;
         }
         Managers.Game.Despawn(gameObject);
     }
