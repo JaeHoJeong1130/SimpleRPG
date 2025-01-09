@@ -21,7 +21,9 @@ public class GameScene : BaseScene
         GameObject player = Managers.Game.Spawn(Define.WorldObject.Player, "Player");
         Camera.main.gameObject.GetOrAddComponent<CameraController>().SetPlayer(player);
         
-        Managers.Game.Spawn(Define.WorldObject.Monster, "Minotaur");
+        GameObject go = new GameObject { name = "MonsterGenerator" };
+        MonsterGenerator gen = go.GetOrAddComponent<MonsterGenerator>();
+        gen.SetKeepMonsterCount(5);
     }
 
     public override void Clear()

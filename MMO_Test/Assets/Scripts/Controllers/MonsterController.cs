@@ -11,6 +11,9 @@ public class MonsterController : BaseController
     float _scanRange = 10;
 
     [SerializeField]
+    float _dismissRange = 15;
+
+    [SerializeField]
     float _attackRange = 2;
 
     public override void Init()
@@ -43,12 +46,17 @@ public class MonsterController : BaseController
 
     protected override void UpdateMoving()
     {
+        GameObject player = Managers.Game.GetPlayer();
+        float distance = (player.transform.position - transform.position).magnitude;
+        if(_dismissRange < distance)
+            State = Define.State.Idle;
+
         // 플레이어가 내 사정거리보다 가까우면 공격
         if(_lockTarget != null)
         {
             _destPos = _lockTarget.transform.position;
-            float distance = (_destPos - transform.position).magnitude;
-            if(distance <= _attackRange)
+            float attackDistance = (_destPos - transform.position).magnitude;
+            if(attackDistance <= _attackRange)
             {
                 NavMeshAgent nma = gameObject.GetOrAddComponent<NavMeshAgent>();
                 nma.SetDestination(transform.position);

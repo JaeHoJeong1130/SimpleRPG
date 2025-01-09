@@ -43,7 +43,9 @@ public class PlayerController : BaseController
         }
 
         Vector3 dir = _destPos - transform.position;
-        if(dir.magnitude < 0.4f) // 벡터에서 벡터를 빼는 경우 정확하게 0이 나오지 않는경우가 많음
+        dir.y = 0f;
+
+        if(dir.magnitude < 0.2f) // 벡터에서 벡터를 빼는 경우 정확하게 0이 나오지 않는경우가 많음
         {
             State = Define.State.Idle;
         }
