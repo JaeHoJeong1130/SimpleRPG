@@ -39,13 +39,14 @@ public class MonsterGenerator : MonoBehaviour
     // UPdate가 계속 실행되면 무한생성될수도있음
         while(_reserveCount + _monsterCount < _keepMonsterCount)
         {
-            StartCoroutine("ReserveGenerate");
+            StartCoroutine("ReserveGenerate(10)");
         }
     }
 
-    IEnumerator ReserveGenerate()
+    IEnumerator ReserveGenerate(int a)
     {
         _spawnPos.Set(72f, 22f, 50f);
+        Debug.Log(a);
 
         _reserveCount++;
         yield return new WaitForSeconds(UnityEngine.Random.Range(0, _spawnTime));
