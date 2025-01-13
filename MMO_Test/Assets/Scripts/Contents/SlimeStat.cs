@@ -7,11 +7,21 @@ public class SlimeStat : Stat
     private void Start()
     {
         _level = 1;
-        _hp = 100;
-        _maxHp = 100;
-        _attack = 10;
+        _hp = 50;
+        _maxHp = 50;
+        _attack = 8;
         _defense = 0;
-        _moveSpeed = 5.0f;
+        _moveSpeed = 3.0f;
+    }
+
+    protected override void OnDead(Stat attacker)
+    {
+        PlayerStat playerStat = attacker as PlayerStat;
+        if(playerStat != null)
+        {
+            playerStat.Exp += 3;
+        }
+        Managers.Game.Despawn(gameObject);
     }
 
 }

@@ -39,18 +39,18 @@ public class MonsterGenerator : MonoBehaviour
     // UPdate가 계속 실행되면 무한생성될수도있음
         while(_reserveCount + _monsterCount < _keepMonsterCount)
         {
-            StartCoroutine("ReserveGenerate(10)");
+            StartCoroutine("ReserveGenerate");
         }
     }
 
-    IEnumerator ReserveGenerate(int a)
+    IEnumerator ReserveGenerate()
     {
-        _spawnPos.Set(72f, 22f, 50f);
-        Debug.Log(a);
+        //_spawnPos.Set(72f, 22f, 50f);
+        _spawnPos.Set(120f, 22f, 3f);
 
         _reserveCount++;
         yield return new WaitForSeconds(UnityEngine.Random.Range(0, _spawnTime));
-        GameObject obj = Managers.Game.Spawn(Define.WorldObject.Monster, "Minotaur");
+        GameObject obj = Managers.Game.Spawn(Define.WorldObject.Monster, "Slime");
         // 갈수 있는 좌표인지 확인하기 위한 nma
         NavMeshAgent nma = obj.GetOrAddComponent<NavMeshAgent>();
 
