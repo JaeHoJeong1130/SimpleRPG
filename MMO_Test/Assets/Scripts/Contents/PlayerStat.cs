@@ -30,6 +30,7 @@ public class PlayerStat : Stat
             if(level != Level)
             {
                 Debug.Log("Level Up!");
+                Managers.Sound.Play("Player/PlayerLevelup", Define.Sound.Effect, volume : 0.4f);
                 Level = level;
                 SetStat(Level);
             }
@@ -62,7 +63,8 @@ public class PlayerStat : Stat
 
     protected override void OnDead(Stat attacker)
     {
-        
+        Managers.Sound.Play("Player/PlayerGroan", Define.Sound.Effect, volume : 1f);
+
         Debug.Log("YOU DIE...");
     }
 }

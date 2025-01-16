@@ -90,6 +90,7 @@ public class PlayerController : BaseController
         if(_lockTarget != null)
         {
             Managers.Sound.Play("Attack/Battleaxe1", Define.Sound.Effect, volume : 0.4f);
+
             Stat targetStat = _lockTarget.GetComponent<Stat>();
             targetStat.OnAttacked(_stat);
         }
@@ -102,6 +103,16 @@ public class PlayerController : BaseController
         {
             State = Define.State.Skill;
         }
+    }
+
+    void FootL()
+    {
+        Managers.Sound.Play("Footstep/Left", Define.Sound.Effect, volume : 0.4f);
+    }
+
+    void FootR()
+    {
+        Managers.Sound.Play("Footstep/Right", Define.Sound.Effect, volume : 0.4f);
     }
 
     void OnMouseEvent(Define.MouseEvent evt)

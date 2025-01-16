@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class MonsterController : BaseController
+public class MinotaurController : BaseController
 {
     Stat _stat;
 
     [SerializeField]
-    float _scanRange = 10;
+    float _scanRange = 8;
 
     [SerializeField]
-    float _dismissRange = 15;
+    float _dismissRange = 10;
 
     [SerializeField]
     float _attackRange = 2;

@@ -11,6 +11,7 @@ public class Define
         Player,
         Monster,
     }
+    
     public enum State
     {
         Die,

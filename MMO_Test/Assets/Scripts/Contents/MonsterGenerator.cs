@@ -45,7 +45,9 @@ public class MonsterGenerator : MonoBehaviour
 
     IEnumerator ReserveGenerate()
     {
+        // Minotaur
         //_spawnPos.Set(72f, 22f, 50f);
+        // Slime
         _spawnPos.Set(120f, 22f, 3f);
 
         _reserveCount++;
