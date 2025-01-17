@@ -30,10 +30,9 @@ public class UI_Player : UI_Scene
             _stat = go.GetComponent<PlayerStat>();
     }
 
-    private void Update()
+    private void LateUpdate()
     {
         float ratio = (_stat.Exp % 10) / (float)10;
-        
         SetExpRatio(ratio);
     }
 

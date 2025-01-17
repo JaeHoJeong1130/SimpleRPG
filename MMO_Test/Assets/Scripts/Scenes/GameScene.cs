@@ -18,6 +18,7 @@ public class GameScene : BaseScene
 
         Managers.Sound.Play("BGM/11 - Heavy Combat - Knight's Valor (loop)", Define.Sound.Bgm, volume : 0.1f);
 
+        // 플레이어 생성
         GameObject player = Managers.Game.Spawn(Define.WorldObject.Player, "Player");
         Camera.main.gameObject.GetOrAddComponent<CameraController>().SetPlayer(player);
         

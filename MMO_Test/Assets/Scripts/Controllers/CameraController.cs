@@ -50,7 +50,8 @@ public class CameraController : MonoBehaviour
         
     }
 
-    // 나중에 쿼터뷰를 코드로 세팅하고 싶을때를 대비
+    // TODO
+    // 쿼터뷰
     public void SetQuaterView(Vector3 delta)
     {
         _mode = Define.CameraMode.QuarterView;

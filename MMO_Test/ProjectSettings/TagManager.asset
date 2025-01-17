@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Monster
+  - MinimapCamera
   layers:
   - Default
   - TransparentFX
