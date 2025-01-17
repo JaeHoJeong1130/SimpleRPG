@@ -28,7 +28,7 @@ public abstract class UI_Base : MonoBehaviour
 
         for(int i = 0; i < names.Length; i++)
         {
-            if(typeof(T) == typeof(GameObject)) // 게임오브젝트 전용용
+            if(typeof(T) == typeof(GameObject)) // 게임오브젝트 전용
                 objects[i] = Util.FindChild(gameObject, names[i], true);
             else
                 objects[i] = Util.FindChild<T>(gameObject, names[i], true);
