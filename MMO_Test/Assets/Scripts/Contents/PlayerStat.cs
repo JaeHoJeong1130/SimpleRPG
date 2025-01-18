@@ -9,6 +9,8 @@ public class PlayerStat : Stat
     [SerializeField]
     protected int _gold;
 
+    public bool isDead = false;
+
     public int Exp
     {
         get { return _exp; }
@@ -63,8 +65,7 @@ public class PlayerStat : Stat
 
     protected override void OnDead(Stat attacker)
     {
-        Managers.Sound.Play("Player/PlayerGroan", Define.Sound.Effect, volume : 1f);
-
-        Debug.Log("YOU DIE...");
+        isDead = true;
+        Debug.Log("YOU DIED...");
     }
 }

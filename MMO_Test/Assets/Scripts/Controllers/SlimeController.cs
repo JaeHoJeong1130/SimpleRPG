@@ -36,7 +36,6 @@ public class SlimeController : BaseController
         float distance = (player.transform.position - transform.position).magnitude;
         if(distance <= _scanRange)
         {
-            Managers.Sound.Play("MonsterRoars/SlimeMove", Define.Sound.Effect);
             _lockTarget = player;
             State = Define.State.Moving;
             return;
@@ -57,6 +56,7 @@ public class SlimeController : BaseController
             float attackDistance = (_destPos - transform.position).magnitude;
             if(attackDistance <= _attackRange)
             {
+                Managers.Sound.Play("MonsterRoars/SlimeMove", Define.Sound.Effect);
                 UnityEngine.AI.NavMeshAgent nma = gameObject.GetOrAddComponent<UnityEngine.AI.NavMeshAgent>();
                 nma.SetDestination(transform.position);
                 State = Define.State.Skill;

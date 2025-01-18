@@ -33,6 +33,7 @@ public class Define
         Login,
         Lobby,
         Game,
+        End,
     }
     
     public enum Sound

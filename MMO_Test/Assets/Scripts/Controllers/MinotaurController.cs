@@ -37,7 +37,7 @@ public class MinotaurController : BaseController
         float distance = (player.transform.position - transform.position).magnitude;
         if(distance <= _scanRange)
         {
-            Managers.Sound.Play("MonsterRoars/01. Primal Roar", Define.Sound.Effect);
+            //Managers.Sound.Play("MonsterRoars/01. Primal Roar", Define.Sound.Effect);
             _lockTarget = player;
             State = Define.State.Moving;
             return;
@@ -58,6 +58,7 @@ public class MinotaurController : BaseController
             float attackDistance = (_destPos - transform.position).magnitude;
             if(attackDistance <= _attackRange)
             {
+                Managers.Sound.Play("MonsterRoars/01. Primal Roar", Define.Sound.Effect);
                 NavMeshAgent nma = gameObject.GetOrAddComponent<NavMeshAgent>();
                 nma.SetDestination(transform.position);
                 State = Define.State.Skill;

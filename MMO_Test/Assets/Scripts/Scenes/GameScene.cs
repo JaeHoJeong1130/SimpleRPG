@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameScene : BaseScene
 {
+    private PlayerStat playerStat;
+    private bool SceneChanged = false;
+
     protected override void Init()
     {
         base.Init();
@@ -20,6 +24,7 @@ public class GameScene : BaseScene
 
         // 플레이어 생성
         GameObject player = Managers.Game.Spawn(Define.WorldObject.Player, "Player");
+        playerStat = player.GetComponent<PlayerStat>();
         Camera.main.gameObject.GetOrAddComponent<CameraController>().SetPlayer(player);
         
         GameObject go = new GameObject { name = "MonsterGenerator" };
@@ -27,6 +32,16 @@ public class GameScene : BaseScene
         gen.SetKeepMonsterCount(5);
 
         GameObject obj = Managers.Game.Spawn(Define.WorldObject.Monster, "Minotaur");
+    }
+
+    private void Update()
+    {
+        if(playerStat.isDead && !SceneChanged)
+        {
+            SceneChanged = true;
+
+            Managers.Scene.LoadScene(Define.Scene.End);
+        }
     }
 
     public override void Clear()
