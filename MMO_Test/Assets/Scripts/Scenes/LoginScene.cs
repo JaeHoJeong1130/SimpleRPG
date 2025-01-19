@@ -13,9 +13,14 @@ public class LoginScene : BaseScene
 
         SceneType = Define.Scene.Login;
 
-        List<GameObject> list = new List<GameObject>();
+        Managers.UI.ShowSceneUI<UI_LoginTitle>();
+
+        //List<GameObject> list = new List<GameObject>();
 
         Managers.Sound.Play("BGM/11 - Heavy Combat - Knight's Valor (loop)", Define.Sound.Bgm, volume : 0.1f);
+
+
+        
     }
 
     private void Update()
