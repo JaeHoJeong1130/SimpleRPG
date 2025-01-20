@@ -9,7 +9,7 @@ public class SlimeStat : Stat
         _level = 1;
         _hp = 50;
         _maxHp = 50;
-        _attack = 200;
+        _attack = 10;
         _defense = 0;
         _moveSpeed = 3.0f;
     }

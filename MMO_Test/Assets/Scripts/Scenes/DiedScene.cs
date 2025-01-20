@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DiedScene : BaseScene
+public class EndScene : BaseScene
 {
     private bool SceneChanged = false;
-
+    
     protected override void Init()
     {
         base.Init();

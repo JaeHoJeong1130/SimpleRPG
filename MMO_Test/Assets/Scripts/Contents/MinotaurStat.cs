@@ -19,7 +19,7 @@ public class MinotaurStat : Stat
         PlayerStat playerStat = attacker as PlayerStat;
         if(playerStat != null)
         {
-            playerStat.Exp += 10;
+            playerStat.Exp += 12;
         }
         Managers.Game.Despawn(gameObject);
     }

@@ -17,10 +17,8 @@ public class LoginScene : BaseScene
 
         //List<GameObject> list = new List<GameObject>();
 
-        Managers.Sound.Play("BGM/11 - Heavy Combat - Knight's Valor (loop)", Define.Sound.Bgm, volume : 0.1f);
+        Managers.Sound.Play("BGM/4 - Heavy Combat - Shadowstrike (loop)", Define.Sound.Bgm, volume : 0.1f);
 
-
-        
     }
 
     private void Update()

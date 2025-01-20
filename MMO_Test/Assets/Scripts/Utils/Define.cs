@@ -34,6 +34,7 @@ public class Define
         Lobby,
         Game,
         End,
+        Died,
     }
     
     public enum Sound

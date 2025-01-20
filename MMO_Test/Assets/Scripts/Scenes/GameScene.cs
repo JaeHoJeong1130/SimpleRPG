@@ -20,7 +20,7 @@ public class GameScene : BaseScene
 
         gameObject.GetOrAddComponent<CursorController>();
 
-        Managers.Sound.Play("BGM/11 - Heavy Combat - Knight's Valor (loop)", Define.Sound.Bgm, volume : 0.1f);
+        Managers.Sound.Play("BGM/8 - Heavy Combat - Warlock's Wrath (loop)", Define.Sound.Bgm, volume : 0.1f);
 
         // 플레이어 생성
         GameObject player = Managers.Game.Spawn(Define.WorldObject.Player, "Player");
@@ -40,7 +40,7 @@ public class GameScene : BaseScene
         {
             SceneChanged = true;
 
-            Managers.Scene.LoadScene(Define.Scene.End);
+            Managers.Scene.LoadScene(Define.Scene.Died);
         }
     }
 
