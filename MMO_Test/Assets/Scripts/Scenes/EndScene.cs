@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DiedScene : BaseScene
+public class EndScene : BaseScene
 {
     private bool SceneChanged = false;
 
@@ -12,7 +12,7 @@ public class DiedScene : BaseScene
         SceneType = Define.Scene.End;
         Dictionary<int, Data.Stat> dict = Managers.Data.StatDict;
 
-        Managers.Sound.Play("Player/PlayerGroan", Define.Sound.Effect, 0.9f, 2.0f);
+        Managers.Sound.Play("SoundEffect/medieval-fanfare-6826", Define.Sound.Effect, 1f, 0.8f);
 
         Managers.Sound.Play("BGM/Forever", Define.Sound.Bgm, volume : 0.1f);
 
@@ -21,10 +21,20 @@ public class DiedScene : BaseScene
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.Space) && !SceneChanged)
-        {
+        {           
             SceneChanged = true;
-            Managers.Scene.LoadScene(Define.Scene.Game);
+            
+            StartCoroutine(LoadGameScene());
         }
+    }
+
+    private IEnumerator LoadGameScene()
+    {
+        Managers.Sound.Play("UISound/SFX_FastUiClick_02_wav", Define.Sound.Effect, volume : 1f);
+
+        yield return new WaitForSeconds(1.0f);
+
+        Managers.Scene.LoadScene(Define.Scene.Game);
     }
 
     public override void Clear()

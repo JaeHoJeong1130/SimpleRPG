@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EndScene : BaseScene
+public class DiedScene : BaseScene
 {
     private bool SceneChanged = false;
     
@@ -21,10 +21,20 @@ public class EndScene : BaseScene
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.Space) && !SceneChanged)
-        {
+        {           
             SceneChanged = true;
-            Managers.Scene.LoadScene(Define.Scene.Game);
+            
+            StartCoroutine(LoadGameScene());
         }
+    }
+
+    private IEnumerator LoadGameScene()
+    {
+        Managers.Sound.Play("UISound/SFX_FastUiClick_02_wav", Define.Sound.Effect, volume : 1f);
+
+        yield return new WaitForSeconds(1.0f);
+
+        Managers.Scene.LoadScene(Define.Scene.Game);
     }
 
     public override void Clear()

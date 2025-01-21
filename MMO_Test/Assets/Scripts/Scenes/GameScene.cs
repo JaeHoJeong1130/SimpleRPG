@@ -6,6 +6,7 @@ using UnityEngine;
 public class GameScene : BaseScene
 {
     private PlayerStat playerStat;
+    private GameObject boss;
     private bool SceneChanged = false;
 
     protected override void Init()
@@ -31,7 +32,7 @@ public class GameScene : BaseScene
         MonsterGenerator gen = go.GetOrAddComponent<MonsterGenerator>();
         gen.SetKeepMonsterCount(5);
 
-        GameObject obj = Managers.Game.Spawn(Define.WorldObject.Monster, "Minotaur");
+        boss = Managers.Game.Spawn(Define.WorldObject.Monster, "Minotaur");
     }
 
     private void Update()
@@ -41,6 +42,13 @@ public class GameScene : BaseScene
             SceneChanged = true;
 
             Managers.Scene.LoadScene(Define.Scene.Died);
+        }
+
+        if(boss == null && !SceneChanged)
+        {
+            SceneChanged = true;
+
+            Managers.Scene.LoadScene(Define.Scene.End);
         }
     }
 

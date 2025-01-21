@@ -27,12 +27,30 @@ public class UI_LoginTitle : UI_Scene
     private void OnButtonClickedStart(PointerEventData data)
     {
         Debug.Log("Start Button Clicked");
-        Managers.Scene.LoadScene(Define.Scene.Game);
+        StartCoroutine(LoadGameScene());
     }
 
     private void OnButtonClickedQuit(PointerEventData data)
     {
         Debug.Log("Quit Button Clicked");
+        StartCoroutine(QuitGame());
+    }
+
+    private IEnumerator LoadGameScene()
+    {
+        Managers.Sound.Play("UISound/SFX_FastUiClick_02_wav", Define.Sound.Effect, volume : 1f);
+
+        yield return new WaitForSeconds(1.0f);
+
+        Managers.Scene.LoadScene(Define.Scene.Game);
+    }
+
+    private IEnumerator QuitGame()
+    {
+        Managers.Sound.Play("UISound/SFX_FastUiClick_02_wav", Define.Sound.Effect, volume : 1f);
+
+        yield return new WaitForSeconds(1.0f);
+
         Application.Quit();
     }
 }

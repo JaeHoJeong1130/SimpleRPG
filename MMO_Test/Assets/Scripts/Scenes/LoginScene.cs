@@ -18,17 +18,27 @@ public class LoginScene : BaseScene
         //List<GameObject> list = new List<GameObject>();
 
         Managers.Sound.Play("BGM/4 - Heavy Combat - Shadowstrike (loop)", Define.Sound.Bgm, volume : 0.1f);
-
     }
 
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.Space) && !SceneChanged)
-        {
+        {           
             SceneChanged = true;
-            Managers.Scene.LoadScene(Define.Scene.Game);
+            
+            StartCoroutine(LoadGameScene());
         }
     }
+
+    private IEnumerator LoadGameScene()
+    {
+        Managers.Sound.Play("UISound/SFX_FastUiClick_02_wav", Define.Sound.Effect, volume : 1f);
+
+        yield return new WaitForSeconds(1.0f);
+
+        Managers.Scene.LoadScene(Define.Scene.Game);
+    }
+
     public override void Clear()
     {
 
